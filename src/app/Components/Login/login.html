@@ -1,0 +1,32 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <span class="logo">🛒 POS</span>
+      <h2>Iniciar Sesión</h2>
+    </div>
+
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="Username" placeholder="Usuario">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="Password" placeholder="Contraseña">
+      </mat-form-field>
+    </form>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width"
+      (click)="login()"
+      [disabled]="loading || form.invalid">
+      <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+      <span *ngIf="!loading">Ingresar</span>
+    </button>
+  </div>
+</div>

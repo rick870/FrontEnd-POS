@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>{{ data ? 'Editar Proveedor' : 'Nuevo Proveedor' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" placeholder="Razón social o nombre">
+      <mat-error *ngIf="form.get('name')?.hasError('required')">Campo requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="correo@ejemplo.com">
+      <mat-error *ngIf="form.get('email')?.hasError('required')">Campo requerido</mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('email')">Email inválido</mat-error>
+    </mat-form-field>
+
+    <div class="row-fields">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Tipo de Documento</mat-label>
+        <mat-select formControlName="documentTypeId">
+          <mat-option *ngFor="let dt of documentTypes" [value]="dt.documentTypeId">
+            {{ dt.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('documentTypeId')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>N° Documento</mat-label>
+        <input matInput formControlName="documentNumber" placeholder="12345678">
+        <mat-error *ngIf="form.get('documentNumber')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="address" placeholder="Av. Ejemplo 123">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="phone" placeholder="987654321">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="state">
+        <mat-option [value]="1">Activo</mat-option>
+        <mat-option [value]="0">Inactivo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="save()" [disabled]="form.invalid">
+    {{ data ? 'Actualizar' : 'Registrar' }}
+  </button>
+</mat-dialog-actions>

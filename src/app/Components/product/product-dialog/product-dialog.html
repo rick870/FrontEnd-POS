@@ -1,0 +1,70 @@
+<h2 mat-dialog-title>{{ data ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+
+    <div class="row-fields">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="code" placeholder="Código de barras">
+        <mat-error *ngIf="form.get('code')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" placeholder="Nombre del producto">
+        <mat-error *ngIf="form.get('name')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row-fields">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Stock</mat-label>
+        <input matInput type="number" formControlName="stock" placeholder="0">
+        <mat-error *ngIf="form.get('stock')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Precio de Venta</mat-label>
+        <input matInput type="number" formControlName="sellPrice" placeholder="0.00">
+        <mat-error *ngIf="form.get('sellPrice')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="categoryId">
+        <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">
+          {{ cat.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('categoryId')?.hasError('required')">Requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Proveedor</mat-label>
+      <mat-select formControlName="providerId">
+        <mat-option *ngFor="let prov of providers" [value]="prov.providerId">
+          {{ prov.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('providerId')?.hasError('required')">Requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="state">
+        <mat-option [value]="1">Activo</mat-option>
+        <mat-option [value]="0">Inactivo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="save()" [disabled]="form.invalid">
+    {{ data ? 'Actualizar' : 'Registrar' }}
+  </button>
+</mat-dialog-actions>

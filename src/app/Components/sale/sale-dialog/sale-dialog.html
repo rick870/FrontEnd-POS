@@ -1,0 +1,133 @@
+<h2 mat-dialog-title>Nueva Venta</h2>
+
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="form" class="header-form">
+
+    <div class="row-fields">
+      <mat-form-field appearance="outline" class="third-width">
+        <mat-label>Tipo de Comprobante</mat-label>
+        <mat-select formControlName="voucherDocumentTypeId">
+          <mat-option *ngFor="let v of voucherTypes" [value]="v.id">
+            {{ v.description }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('voucherDocumentTypeId')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="third-width">
+        <mat-label>N° Comprobante</mat-label>
+        <input matInput formControlName="voucherNumber" placeholder="FO0001">
+        <mat-error *ngIf="form.get('voucherNumber')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="third-width">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="clientId">
+          <mat-option *ngFor="let c of clients" [value]="c.clientId">
+            {{ c.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('clientId')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Observación</mat-label>
+      <input matInput formControlName="observation" placeholder="Opcional">
+    </mat-form-field>
+
+  </form>
+
+  <!-- Buscador de productos -->
+  <div class="product-search-section">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Buscar producto por nombre o código</mat-label>
+      <input matInput [(ngModel)]="productSearch"
+             [ngModelOptions]="{standalone: true}"
+             (input)="filterProducts()"
+             placeholder="Ej: Coca Cola o 7501055300075">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="product-suggestions" *ngIf="filteredProducts.length > 0">
+      <div class="product-item" *ngFor="let p of filteredProducts" (click)="addProduct(p)">
+        <div class="product-info">
+          <span class="product-code">{{ p.code }}</span>
+          <span class="product-name">{{ p.name }}</span>
+        </div>
+        <span class="product-price">S/ {{ p.sellPrice | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <div class="no-products" *ngIf="productSearch.length > 0 && filteredProducts.length === 0">
+      No se encontraron productos
+    </div>
+  </div>
+
+  <!-- Tabla de detalle -->
+  <table mat-table [dataSource]="saleDetails" class="detail-table mat-elevation-z1"
+         *ngIf="saleDetails.length > 0">
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef>Código</th>
+      <td mat-cell *matCellDef="let d">{{ d.code }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Producto</th>
+      <td mat-cell *matCellDef="let d">{{ d.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+      <td mat-cell *matCellDef="let d">
+        <input type="number" [(ngModel)]="d.quantity"
+               [ngModelOptions]="{standalone: true}"
+               (change)="updateTotal(d)"
+               class="qty-input" min="1">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="unitSalePrice">
+      <th mat-header-cell *matHeaderCellDef>P. Unit.</th>
+      <td mat-cell *matCellDef="let d">S/ {{ d.unitSalePrice | number:'1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let d">S/ {{ d.total | number:'1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="remove">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let d">
+        <button mat-icon-button color="warn" (click)="removeDetail(d)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="detailColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: detailColumns;"></tr>
+  </table>
+
+  <!-- Totales -->
+  <div class="totals-section" *ngIf="saleDetails.length > 0">
+    <div class="total-row"><span>SubTotal:</span><span>S/ {{ subTotal | number:'1.2-2' }}</span></div>
+    <div class="total-row"><span>IGV (18%):</span><span>S/ {{ igv | number:'1.2-2' }}</span></div>
+    <div class="total-row total-final"><span>Total:</span><span>S/ {{ totalAmount | number:'1.2-2' }}</span></div>
+  </div>
+
+  <p class="warn-msg" *ngIf="saleDetails.length === 0">
+    ⚠ Agrega al menos un producto para registrar la venta.
+  </p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="save()"
+    [disabled]="form.invalid || saleDetails.length === 0">
+    Registrar Venta
+  </button>
+</mat-dialog-actions>

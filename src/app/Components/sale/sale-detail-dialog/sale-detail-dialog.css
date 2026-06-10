@@ -1,0 +1,85 @@
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+.info-item.highlight .info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.detail-table {
+  width: 100%;
+}
+
+.detail-table th {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.detail-table td {
+  font-size: 14px;
+  padding: 12px 16px;
+}
+
+.center { text-align: center; }
+
+.mat-column-unitSalePrice {
+  width: 140px;
+  min-width: 140px;
+}
+
+.mat-column-totalAmount {
+  width: 120px;
+  min-width: 120px;
+}
+
+.mat-column-code {
+  width: 180px;
+  min-width: 180px;
+}
+
+.mat-column-quantity {
+  width: 90px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.mat-column-name {
+  min-width: 200px;
+}

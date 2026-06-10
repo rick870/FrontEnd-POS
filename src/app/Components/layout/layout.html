@@ -1,0 +1,57 @@
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">🛒</span>
+      <span class="logo-text">POS</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Estadísticas</span>
+      </a>
+      <a routerLink="/categories" routerLinkActive="active" class="nav-item">
+        <mat-icon>category</mat-icon>
+        <span>Categorías</span>
+      </a>
+      <a routerLink="/products" routerLinkActive="active" class="nav-item">
+        <mat-icon>inventory_2</mat-icon>
+        <span>Productos</span>
+      </a>
+      <a routerLink="/providers" routerLinkActive="active" class="nav-item">
+        <mat-icon>local_shipping</mat-icon>
+        <span>Proveedores</span>
+      </a>
+      <a routerLink="/clients" routerLinkActive="active" class="nav-item">
+        <mat-icon>people</mat-icon>
+        <span>Clientes</span>
+      </a>
+      <a routerLink="/sales" routerLinkActive="active" class="nav-item">
+        <mat-icon>point_of_sale</mat-icon>
+        <span>Ventas</span>
+      </a>
+      <!-- <a routerLink="/users" routerLinkActive="active" class="nav-item">
+        <mat-icon>manage_accounts</mat-icon>
+        <span>Usuarios</span>
+      </a> -->
+    
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">Sistema POS</div>
+      <button class="logout-btn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </header>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

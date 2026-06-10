@@ -1,0 +1,122 @@
+.dashboard-container { padding: 24px; }
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.page-title { font-size: 22px; font-weight: 600; margin: 0; }
+
+.filters-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpi-card mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px !important;
+}
+
+.kpi-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-icon mat-icon { font-size: 28px; width: 28px; height: 28px; color: white; }
+
+.kpi-info { display: flex; flex-direction: column; }
+.kpi-value { font-size: 22px; font-weight: 700; }
+.kpi-label { font-size: 12px; color: #666; }
+
+.kpi-blue .kpi-icon { background: #1976d2; }
+.kpi-blue .kpi-value { color: #1976d2; }
+
+.kpi-green .kpi-icon { background: #388e3c; }
+.kpi-green .kpi-value { color: #388e3c; }
+
+.kpi-orange .kpi-icon { background: #f57c00; }
+.kpi-orange .kpi-value { color: #f57c00; }
+
+.kpi-purple .kpi-icon { background: #7b1fa2; }
+.kpi-purple .kpi-value { color: #7b1fa2; }
+
+.kpi-teal .kpi-icon { background: #00796b; }
+.kpi-teal .kpi-value { color: #00796b; }
+
+/* Bottom grid */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+}
+
+/* Pie chart */
+.pie-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.pie-chart { width: 180px; height: 180px; }
+
+.pie-total {
+  font-size: 28px;
+  font-weight: 700;
+  fill: #333;
+}
+
+.pie-label-center {
+  font-size: 12px;
+  fill: #888;
+}
+
+.pie-legend { display: flex; flex-direction: column; gap: 10px; }
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-text { flex: 1; }
+.legend-count { font-weight: 600; color: #555; }
+
+/* Table */
+.table-card table { width: 100%; }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.no-data-msg {
+  text-align: center;
+  color: #888;
+  padding: 24px;
+}
