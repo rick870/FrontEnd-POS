@@ -1,5 +1,8 @@
 🔹 Descripción del Proyecto
+
+
 Frontend en desarrollo para sistema POS empresarial, construido con Angular y TypeScript, orientado a la gestión dinámica de categorías, productos, clientes y ventas mediante integración con APIs REST desarrolladas en ASP.NET Core Web API.
+
 
 🛠 Tecnologías Utilizadas
 Framework: Angular
@@ -12,6 +15,8 @@ Comunicación: Consumo de APIs REST (Servicios HTTP)
 
 UI: Angular Material
 
+
+
 🚀 Funcionalidades Implementadas
 Gestión de categorías: Listado dinámico y consumo de API.
 
@@ -20,6 +25,8 @@ Arquitectura modular: Basada en componentes reutilizables, orientada a la escala
 Integración: Conexión directa frontend/backend mediante servicios HTTP.
 
 Interfaces: Diseño administrativo enfocado en el sistema de ventas POS.
+
+
 
 📦 Comenzar en Local
 Instalar las dependencias del proyecto:
@@ -30,12 +37,15 @@ Levantar el servidor de desarrollo local:
 
 Bash
 ng serve -o
+
+
 🔑 Credenciales de Acceso
 Para las pruebas en el entorno de desarrollo, puedes utilizar las siguientes credenciales:
 
 Usuario: cajero
 
 Password: cajero123
+
 
 🌐 Infraestructura
 API Backend: Conectado a Azure App Service.
