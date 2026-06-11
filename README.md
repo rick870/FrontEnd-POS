@@ -58,3 +58,7 @@ npm install
 
 # 2. Ejecutar el proyecto
 ng serve -o
+
+
+👨‍💻 Autor
+Agustin Gonzales
