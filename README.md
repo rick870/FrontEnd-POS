@@ -1,5 +1,9 @@
-FrontEnd - Sistema de Punto de Venta (POS)
-Interfaz gráfica para la gestión de ventas, inventario y clientes, desarrollada con Angular y Angular Material.
+🛠 FrontEnd - Sistema de Punto de Venta (POS)
+
+
+
+
+🛠  Interfaz gráfica para la gestión de ventas, inventario y clientes, desarrollada con Angular y Angular Material.
 
 
 
