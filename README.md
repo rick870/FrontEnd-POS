@@ -1,19 +1,43 @@
-# FrontEnd - Sistema de Punto de Venta (POS)
+🔹 Descripción del Proyecto
+Frontend en desarrollo para sistema POS empresarial, construido con Angular y TypeScript, orientado a la gestión dinámica de categorías, productos, clientes y ventas mediante integración con APIs REST desarrolladas en ASP.NET Core Web API.
 
-Interfaz gráfica para la gestión de ventas, inventario y clientes, desarrollada con Angular y Angular Material.
+🛠 Tecnologías Utilizadas
+Framework: Angular
 
-## 🚀 Comenzar en Local
+Lenguajes: TypeScript, HTML, CSS/SCSS
 
-1. Instalar las dependencias del proyecto:
-```bash
-   npm install
+Navegación: Angular Router
 
-2. Levantar el servidor de desarrollo local:
+Comunicación: Consumo de APIs REST (Servicios HTTP)
 
-```bash
-   ng serve -o
+UI: Angular Material
 
-🌐 Endpoints de Producción
-API Backend: Conectado directamente a Azure App Service.
+🚀 Funcionalidades Implementadas
+Gestión de categorías: Listado dinámico y consumo de API.
+
+Arquitectura modular: Basada en componentes reutilizables, orientada a la escalabilidad y el mantenimiento.
+
+Integración: Conexión directa frontend/backend mediante servicios HTTP.
+
+Interfaces: Diseño administrativo enfocado en el sistema de ventas POS.
+
+📦 Comenzar en Local
+Instalar las dependencias del proyecto:
+
+Bash
+npm install
+Levantar el servidor de desarrollo local:
+
+Bash
+ng serve -o
+🔑 Credenciales de Acceso
+Para las pruebas en el entorno de desarrollo, puedes utilizar las siguientes credenciales:
+
+Usuario: cajero
+
+Password: cajero123
+
+🌐 Infraestructura
+API Backend: Conectado a Azure App Service.
 
 Base de Datos: Azure SQL Database.
