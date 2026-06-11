@@ -1,59 +1,34 @@
-🛠 FrontEnd - Sistema de Punto de Venta (POS)
+# 🛒 FrontEnd - Sistema de Punto de Venta (POS)
+<hr style="height:2px;border:none;color:#f39c12;background-color:#f39c12;">
 
-
-
-
-🛠  Interfaz gráfica para la gestión de ventas, inventario y clientes, desarrollada con Angular y Angular Material.
-
-
-
-🔹 Descripción del Proyecto
-
-
+## 🔨 Project Overview
 Frontend en desarrollo para sistema POS empresarial, construido con Angular y TypeScript, orientado a la gestión dinámica de categorías, productos, clientes y ventas mediante integración con APIs REST desarrolladas en ASP.NET Core Web API.
 
+## 💎 Tech Stack
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Angular Material](https://img.shields.io/badge/Angular_Material-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
 
-🛠 Tecnologías Utilizadas
-Framework: Angular
+## 🚀 Key Features
+* 🔨 **Gestión de categorías:** Implementación dinámica consumiendo API.
+* 🚀 **Integración modular:** Conexión directa frontend/backend mediante servicios HTTP.
+* 📄 **Interfaces:** Diseño administrativo enfocado en el sistema de ventas POS.
 
-Lenguajes: TypeScript, HTML, CSS/SCSS
-
-Navegación: Angular Router
-
-Comunicación: Consumo de APIs REST (Servicios HTTP)
-
-UI: Angular Material
-
-
-
-🚀 Funcionalidades Implementadas
-Gestión de categorías: Listado dinámico y consumo de API.
-
-Arquitectura modular: Basada en componentes reutilizables, orientada a la escalabilidad y el mantenimiento.
-
-Integración: Conexión directa frontend/backend mediante servicios HTTP.
-
-Interfaces: Diseño administrativo enfocado en el sistema de ventas POS.
-
-
-
-📦 Comenzar en Local
-Instalar las dependencias del proyecto:
-
-Bash
+## ▶️ Quick Start
+```bash
 npm install
-Levantar el servidor de desarrollo local:
 
-Bash
+ash
 ng serve -o
 
 
-🔑 Credenciales de Acceso
-Para las pruebas en el entorno de desarrollo, puedes utilizar las siguientes credenciales:
-
+🔑 Demo Credentials Key 🔒
 Usuario: cajero
 
 Password: cajero123
+
 
 
 🌐 Infraestructura
